@@ -3,8 +3,34 @@
 Solid design patterns
 
 * Creational
+  * Builder
+  * Factories
+    * Abstract Factory
+    * Factory Method
+  * Prototype
+  * Singleton
+
 * Structural
+  * Adapter
+  * Bridge
+  * Composite
+  * Decorator
+  * Facade
+  * Flyweight
+  * Proxy
+
 * Behavioral
+  * Chain of Responsability
+  * Command
+  * Interpreter
+  * Mediator
+  * Memento
+  * Observer
+  * State
+  * Strategy
+  * Template Method
+  * Visitor
+
 
 #### Install Boost lib 
 

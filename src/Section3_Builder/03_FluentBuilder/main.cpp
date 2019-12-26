@@ -1,4 +1,4 @@
-// Builder
+// Fluent Builder
 
 #include <iostream>
 #include <string>
@@ -7,9 +7,9 @@
 #include <memory>
 using namespace std;
 
-
 struct HtmlElement
 {
+  // friend class HtmlBuilder;
   string name, text;
   vector<HtmlElement> elements;
 
@@ -32,7 +32,14 @@ struct HtmlElement
 
     oss << i << "</" << name << ">" << endl;
     return oss.str();
-  }  
+  }
+  
+  // HtlmBuilder build(string root_name)
+  // {
+  //   return { root_name };
+  // }
+
+  // static unique_ptr<HtlmBuilder> build;
 };
 
 struct HtlmBuilder
@@ -44,22 +51,35 @@ struct HtlmBuilder
     root.name = root_name;
   }
 
-  void add_child(string child_name, string child_text)
+  HtlmBuilder& add_child(string child_name, string child_text)
   {
     HtmlElement e { child_name, child_text };
     root.elements.emplace_back(e);
+    return *this;
   }
 
+  // HtlmBuilder* add_child_2(string child_name, string child_text)
+  // {
+  //   HtmlElement e { child_name, child_text };
+  //   root.elements.emplace_back(e);
+  //   return this;
+  // }
+
+
   string str() const { return root.str(); }
+
+  operator HtmlElement() const { return root; }
+
 };
 
 
 int main() 
 {
   HtlmBuilder builder("ul");
-  builder.add_child("li", "hello");
-  builder.add_child("li", "wolrd");
+  builder.add_child("li", "hello").add_child("li", "world");
   cout << builder.str() << endl;
+
+  // HtmlElement elem = HtmlElement::build("ul").add_child("li", "hello");
 
   return 0;
 }

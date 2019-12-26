@@ -86,3 +86,15 @@ This is called *Gamma Categorization* after Erich Gamma, one of GoF (Gang Of Fou
 
 **Behavioral Patterns**
 * They are all different; no central theme
+
+
+#### Motivation
+
+* Some objects are simple and cab be created in a single constructor call
+* Other objects require a lot of ceremony to create
+* Having an object with 10 constructor arguments is not productive
+* Instead, opt for piecewise construction
+* Builder provides an API for constructing an object step-by-step
+
+
+*Builder*, When piecewise object construction is complicated, provide an API for doing it succintly
